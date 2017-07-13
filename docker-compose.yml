@@ -1,0 +1,16 @@
+nodered-tk102:
+     build: nodered-tk102
+     hostname: nodered
+     container_name: nodered_tk102
+     ports:
+        - 1880:1880
+        - 64000:64000
+     links:
+        - mongodb
+
+mongodb:
+     image: mongo:latest
+     container_name: mongo
+     ports:
+        - "27017:27017"
+     command: mongod --smallfiles --logpath=/dev/null # --quiet
